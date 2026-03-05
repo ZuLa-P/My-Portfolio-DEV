@@ -1,0 +1,25 @@
+const contact = {
+  title: "ติดต่อฉัน",
+  subtitle: "หากคุณสนใจร่วมงานกัน หรือมีคำถาม สามารถติดต่อผ่านช่องทางด้านล่างได้เลยครับ",
+  channelsTitle: "ช่องทางการติดต่อ",
+  email: "อีเมล",
+  phone: "เบอร์โทรศัพท์",
+  address: "ที่อยู่",
+  addressValue: "กรุงเทพมหานคร, ประเทศไทย",
+  social: "โซเชียลมีเดีย",
+  formName: "ชื่อ",
+  formNamePlaceholder: "ชื่อของคุณ",
+  formEmail: "อีเมล",
+  formEmailPlaceholder: "your@email.com",
+  formMessage: "ข้อความ",
+  formMessagePlaceholder: "เขียนข้อความของคุณที่นี่...",
+  sendButton: "ส่งข้อความ",
+  successMessage: "✅ ส่งข้อความสำเร็จแล้ว! ขอบคุณครับ",
+  errorMessage: "❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
+  alertSuccessTitle: "ส่งสำเร็จแล้ว!",
+  alertSuccessMessage: "ข้อความของคุณถูกส่งเรียบร้อยแล้ว เราจะติดต่อกลับโดยเร็ว",
+  alertErrorTitle: "ส่งไม่สำเร็จ",
+  alertErrorMessage: "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
+};
+
+export default contact;

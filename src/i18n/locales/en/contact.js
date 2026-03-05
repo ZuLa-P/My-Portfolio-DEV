@@ -1,0 +1,25 @@
+const contact = {
+  title: "Contact Me",
+  subtitle: "If you're interested in working together or have any questions, feel free to reach out!",
+  channelsTitle: "Contact Channels",
+  email: "Email",
+  phone: "Phone",
+  address: "Address",
+  addressValue: "Bangkok, Thailand",
+  social: "Social Media",
+  formName: "Name",
+  formNamePlaceholder: "Your name",
+  formEmail: "Email",
+  formEmailPlaceholder: "your@email.com",
+  formMessage: "Message",
+  formMessagePlaceholder: "Write your message here...",
+  sendButton: "Send Message",
+  successMessage: "✅ Message sent successfully! Thank you.",
+  errorMessage: "❌ Something went wrong. Please try again.",
+  alertSuccessTitle: "Sent Successfully!",
+  alertSuccessMessage: "Your message has been sent. We will get back to you soon.",
+  alertErrorTitle: "Sending Failed",
+  alertErrorMessage: "Something went wrong. Please try again later.",
+};
+
+export default contact;
