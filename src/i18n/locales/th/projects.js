@@ -3,21 +3,14 @@ const projects = {
   subtitle: "โปรเจกต์ที่ฉันได้พัฒนาขึ้น ทั้งโปรเจกต์ส่วนตัวและโปรเจกต์ที่ทำให้ลูกค้า",
   items: [
     {
-      title: "E-Commerce Website",
-      description: "เว็บไซต์ร้านค้าออนไลน์ที่รองรับการชำระเงิน, ตะกร้าสินค้า, และระบบจัดการสินค้า",
+      title: "My Portfolio DEV",
+      description: "เว็บไซต์สำหรับแสดงผลงานและโปรเจกต์ที่ฉันได้พัฒนาขึ้นสำหรับงานส่วนตัว",
     },
     {
-      title: "Task Management App",
-      description: "แอปจัดการงานแบบ Kanban Board พร้อม drag & drop และการแจ้งเตือนแบบ real-time",
+      title: "Youtube Downloader",
+      description: "เว็บไซต์สำหรับดาวน์โหลดวิดีโอจาก YouTube โดยสามารถโหลดทั้งช่องได้ภายในลิงค์เดียว",
     },
-    {
-      title: "Weather Dashboard",
-      description: "แดชบอร์ดแสดงสภาพอากาศจาก API พร้อมกราฟแสดงผลและพยากรณ์อากาศ 7 วัน",
-    },
-    {
-      title: "Chat Application",
-      description: "แอปแชทแบบ real-time รองรับห้องแชทหลายห้อง และการส่งรูปภาพ",
-    },
+
   ],
 };
 

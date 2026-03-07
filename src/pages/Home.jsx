@@ -19,9 +19,11 @@ function Home() {
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         {/* Avatar */}
         <div className="mb-8">
-          <div className="w-36 h-36 mx-auto rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 flex items-center justify-center text-white text-5xl font-bold shadow-lg">
-            👨‍💻
-          </div>
+          <img
+            src="/pic/poom.jpg"
+            alt="Phanupong Hookaew"
+            className="w-60 h-60 mx-auto rounded-full object-cover shadow-lg ring-4 ring-blue-500/50"
+          />
         </div>
 
         {/* Name & Title */}
