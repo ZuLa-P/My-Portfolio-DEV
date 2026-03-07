@@ -10,6 +10,10 @@ const projects = {
       title: "Youtube Downloader",
       description: "เว็บไซต์สำหรับดาวน์โหลดวิดีโอจาก YouTube โดยสามารถโหลดทั้งช่องได้ภายในลิงค์เดียว",
     },
+        {
+      title: "SMS2Pro",
+      description: "เว็บไซต์สำหรับส่งข้อความ SMS ใช้สำหรับการตลาดและการแจ้งเตือนต่างๆ ",
+    },
 
   ],
 };
