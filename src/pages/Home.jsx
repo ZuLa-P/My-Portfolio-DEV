@@ -49,10 +49,10 @@ function Home() {
         >
           {t("home.bio")}
         </p>
+        {/* My Skills */}
 
-        {/* Skills */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {["React", "JavaScript", "Node.js", "Tailwind CSS", "Python", "Git"].map(
+          {["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "Git"].map(
             (skill) => (
               <span
                 key={skill}
