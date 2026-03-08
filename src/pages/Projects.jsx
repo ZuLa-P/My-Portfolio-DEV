@@ -20,7 +20,7 @@ function Projects() {
       image: "/pic/youtube.PNG",
     },
         {
-      tech: ["React", "Tailwind CSS" , "Next.js"],
+      tech: ["React", "TypeScript", "Tailwind CSS" , "Next.js"],
       github: "",
       demo: "",
       image: "/pic/sms2pro.PNG",

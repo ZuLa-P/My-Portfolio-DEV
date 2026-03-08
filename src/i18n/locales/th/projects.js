@@ -12,9 +12,8 @@ const projects = {
     },
         {
       title: "SMS2Pro",
-      description: "เว็บไซต์สำหรับส่งข้อความ SMS ใช้สำหรับการตลาดและการแจ้งเตือนต่างๆ ",
+      description: "เว็บไซต์สำหรับส่งข้อความ SMS Dashboard datatable login admin และอื่นๆ",
     },
-
   ],
 };
 

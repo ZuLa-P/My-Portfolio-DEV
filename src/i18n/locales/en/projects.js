@@ -10,7 +10,10 @@ const projects = {
   title: "YouTube Downloader",
   description: "A web application that allows users to download YouTube videos, including entire channels from a single link.",
 },
-
+{
+  title: "SMS2Pro",
+  description: "A website for sending SMS messages with features such as a dashboard, data tables, admin login, and more.",
+}
   ],
 };
 
