@@ -54,7 +54,7 @@ function Home() {
         {/* My Skills */}
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "Git"].map(
+          {["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "Git" , "Docker" , ].map(
             (skill) => (
               <span
                 key={skill}
