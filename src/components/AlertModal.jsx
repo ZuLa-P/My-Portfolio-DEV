@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../hooks/useTheme";
 
 function AlertModal({ isOpen, onClose, type = "success", title, message }) {
   const { isDark } = useTheme();
