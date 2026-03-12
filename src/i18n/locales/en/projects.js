@@ -15,6 +15,12 @@ const projects = {
   description: "A website for sending SMS messages with features such as a dashboard, data tables, admin login, and more.",
 }
   ],
+  detail: {
+    backToProjects: "Back to Projects",
+    0: { captions: { 0: "Main page of the portfolio website" } },
+    1: { captions: { 0: "Main page of YouTube Downloader" } },
+    2: { captions: { 0: "Main page of SMS2Pro" } },
+  },
 };
 
 export default projects;

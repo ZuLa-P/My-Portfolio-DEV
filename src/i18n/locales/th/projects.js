@@ -15,6 +15,12 @@ const projects = {
       description: "เว็บไซต์สำหรับส่งข้อความ SMS Dashboard datatable login admin และอื่นๆ",
     },
   ],
+  detail: {
+    backToProjects: "กลับไปหน้าผลงาน",
+    0: { captions: { 0: "หน้าหลักของเว็บไซต์ Portfolio" } },
+    1: { captions: { 0: "หน้าหลักของ YouTube Downloader" } },
+    2: { captions: { 0: "หน้าหลักของ SMS2Pro" } },
+  },
 };
 
 export default projects;

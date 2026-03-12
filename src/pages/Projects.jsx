@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../hooks/useTheme";
 import ParticleBackground from "../components/ParticleBackground";
 
 function Projects() {
@@ -62,9 +63,10 @@ function Projects() {
         {/* Project Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <Link
+              to={`/projects/${index}`}
               key={index}
-              className={`rounded-xl p-6 border transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 ${
+              className={`block rounded-xl p-6 border transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer ${
                 isDark
                   ? "bg-gray-800/50 border-gray-700 hover:border-blue-500/50"
                   : "bg-white border-gray-200 hover:border-blue-300"
@@ -171,7 +173,7 @@ function Projects() {
                   </a>
                 )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
