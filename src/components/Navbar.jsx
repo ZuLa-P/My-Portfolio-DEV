@@ -68,11 +68,7 @@ function Navbar() {
                 ? "border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
                 : "border-gray-300 text-gray-600 hover:bg-gray-100 hover:text-gray-900"
             }`}
-<<<<<<< HEAD
             title={lang === "en" ? "Switch to Thai" : "Switch to English"}
-=======
-            title={lang === "en" ? "Switch to English" : "เปลี่ยนเป็นภาษาไทย"}
->>>>>>> main
           >
             {lang === "en" ? "EN" : "TH"}
           </button>
@@ -82,13 +78,8 @@ function Navbar() {
             onClick={toggleTheme}
             className={`w-9 h-9 rounded-full flex items-center justify-center transition ${
               isDark
-<<<<<<< HEAD
                 ? "bg-gray-800 text-gray-700 hover:bg-gray-700 hover:text-yellow-400"
                 : "bg-gray-100 text-yellow-400 hover:bg-gray-200"
-=======
-                ? "bg-gray-800  text-gray-700 hover:bg-gray-700 hover:text-yellow-400"
-                : "bg-gray-100 text-yellow-400 hover:bg-gray-200 "
->>>>>>> main
             }`}
             title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
