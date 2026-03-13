@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import { useTheme } from "./hooks/useTheme";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -9,8 +10,12 @@ import Contact from "./pages/Contact";
 function App() {
   const { isDark } = useTheme();
 
+  useEffect(() => {
+    document.body.style.backgroundColor = isDark ? "#000000" : "#f9fafb";
+  }, [isDark]);
+
   return (
-    <div className={`min-h-screen transition-colors ${isDark ? "bg-gray-900" : "bg-white"}`}>
+    <div className={`min-h-screen transition-colors ${isDark ? "bg-black" : "bg-gray-50"}`}>
       <Navbar />
       <main className="pt-16">
         <Routes>

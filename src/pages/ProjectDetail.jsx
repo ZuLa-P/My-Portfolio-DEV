@@ -45,7 +45,7 @@ function ProjectDetail() {
     return (
       <section
         className={`min-h-screen flex items-center justify-center ${
-          isDark ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
+          isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"
         }`}
       >
         <div className="text-center">
@@ -67,7 +67,7 @@ function ProjectDetail() {
   return (
     <section
       className={`relative min-h-screen py-20 px-6 transition-colors ${
-        isDark ? "bg-gray-900" : "bg-gray-50"
+        isDark ? "bg-black" : "bg-gray-50"
       }`}
     >
       <ParticleBackground isDark={isDark} />

@@ -37,7 +37,7 @@ function Projects() {
   return (
     <section
       className={`relative min-h-screen py-20 px-6 transition-colors ${
-        isDark ? "bg-gray-900" : "bg-gray-50"
+        isDark ? "bg-black" : "bg-gray-50"
       }`}
     >
       <ParticleBackground isDark={isDark} />

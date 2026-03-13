@@ -11,8 +11,8 @@ function Home() {
     <section
       className={`relative min-h-screen flex items-center justify-center transition-colors ${
         isDark
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-          : "bg-gradient-to-br from-gray-50 via-white to-gray-100"
+          ? "bg-gradient-to-br from-black via-black to-black"
+          : "bg-gradient-to-br from-gray-50 via-gray-50 to-gray-50"
       }`}
     >
       <ParticleBackground isDark={isDark} />
@@ -33,7 +33,7 @@ function Home() {
           }`}
         >
           {t("home.greeting")}{" "}
-          <span className="text-blue-400">{t("home.name")}</span>
+          <span className="text-blue-500">{t("home.name")}</span>
         </h1>
         <p
           className={`text-xl mb-6 ${
