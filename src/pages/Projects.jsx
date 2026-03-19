@@ -1,38 +1,45 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
 import ParticleBackground from "../components/ParticleBackground";
+import Loading from "../components/Loading";
+import { projectsAPI } from "../services/api";
+
+
+const getLang = (field, lang) => {
+  if (field && typeof field === "object") return field[lang] ?? field.en ?? "";
+  return field ?? "";
+};
 
 function Projects() {
   const { isDark } = useTheme();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.slice(0, 2) ?? "en";
+  const [projectsMeta, setProjectsMeta] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const projectsMeta = [
-    {
-      tech: ["React", "Tailwind CSS"],
-      github: "https://github.com/ZuLa-P/My-Portfolio-DEV",
-      demo: "https://phanuphong.vercel.app/",
-      image: "/pic/portfoilo.PNG",
-    },
-    {
-      tech: ["React", "Tailwind CSS", "Express"],
-      github: "https://github.com/ZuLa-P/YoutubeDowload",
-      demo: "",
-      image: "/pic/youtube.PNG",
-    },
-        {
-      tech: ["React", "TypeScript", "Tailwind CSS" , "Next.js", "Docker"],
-      github: "",
-      demo: "",
-      image: "/pic/sms2pro.PNG",
-    },
-  ];
+  useEffect(() => {
+    projectsAPI
+      .getAll()
+      .then((data) => {
+        setProjectsMeta(Array.isArray(data) ? data : data?.data ?? data?.projects ?? []);
+      })
+      .catch((err) => console.warn("Using fallback projects:", err.message))
+      .finally(() => setLoading(false));
+  }, []);
 
-  const projects = projectsMeta.map((meta, i) => ({
-    ...meta,
-    title: t(`projects.items.${i}.title`),
-    description: t(`projects.items.${i}.description`),
-  }));
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    if (!projectsMeta) return;
+    setProjects(projectsMeta.map((meta) => ({
+      ...meta,
+      title: getLang(meta.headers, lang),
+      description: getLang(meta.caption, lang),
+    })));
+  }, [projectsMeta, lang]);
+
 
   return (
     <section
@@ -61,8 +68,11 @@ function Projects() {
         </div>
 
         {/* Project Cards */}
+        {loading ? (
+          <Loading />
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {(projects ?? []).map((project, index) => (
             <Link
               to={`/projects/${index}`}
               key={index}
@@ -98,19 +108,19 @@ function Projects() {
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
-                {project.title}
+                {getLang(project.headers, lang)}
               </h3>
               <p
                 className={`mb-4 leading-relaxed ${
                   isDark ? "text-gray-400" : "text-gray-500"
                 }`}
               >
-                {project.description}
+                {getLang(project.caption, lang)}
               </p>
 
               {/* Tech Stack */}
               <div className="flex flex-wrap gap-2 mb-5">
-                {project.tech.map((tech) => (
+                {(project.tech ?? []).map((tech) => (
                   <span
                     key={tech}
                     className={`px-3 py-1 text-xs rounded-full border ${
@@ -176,6 +186,7 @@ function Projects() {
             </Link>
           ))}
         </div>
+        )}
       </div>
     </section>
   );

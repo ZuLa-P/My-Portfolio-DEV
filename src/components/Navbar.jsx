@@ -17,13 +17,13 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-3 left-4 right-4 sm:left-10 sm:right-10 md:left-16 md:right-16 lg:left-[200px] lg:right-[200px] rounded-[30px] z-50 backdrop-blur-sm border transition-colors ${
+      className={`fixed top-3 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-3xl rounded-[30px] z-50 backdrop-blur-sm border transition-colors ${
         isDark
           ? "bg-transparent border-gray-800"
           : "bg-transparent border-gray-200"
       }`}
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+      <div className="px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
         <Link
           to="/"

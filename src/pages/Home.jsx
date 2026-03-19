@@ -36,7 +36,7 @@ function Home() {
           <span className="text-blue-500">{t("home.name")}</span>
         </h1>
         <p
-          className={`text-xl mb-6 ${
+          className={`text-xl mb-6 font-semibold ${
             isDark ? "text-gray-300" : "text-gray-600"
           }`}
         >

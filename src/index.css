@@ -1,14 +1,54 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", "Noto Sans Thai", sans-serif;
+@font-face {
+  font-family: 'Sukhumvit Set';
+  src: url('/fonts/SukhumvitSet-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sukhumvit Set';
+  src: url('/fonts/SukhumvitSet-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sukhumvit Set';
+  src: url('/fonts/SukhumvitSet-Text.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sukhumvit Set';
+  src: url('/fonts/SukhumvitSet-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sukhumvit Set';
+  src: url('/fonts/SukhumvitSet-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sukhumvit Set';
+  src: url('/fonts/SukhumvitSet-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: 'Sukhumvit Set', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 html, body {
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: var(--font-sans);
 }
