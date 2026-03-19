@@ -6,6 +6,7 @@ import { createContactSchema } from "../schemas/contactSchema";
 import { useAlert } from "../hooks/useAlert";
 import AlertModal from "../components/AlertModal";
 import ParticleBackground from "../components/ParticleBackground";
+import { contactAPI } from "../services/api";
 
 const EMAILJS_SERVICE_ID = "service_hookaew43";
 const EMAILJS_TEMPLATE_ID = "template_gv1x7qk";
@@ -67,6 +68,7 @@ function Contact() {
     setSending(true);
 
     try {
+      // ส่ง email ผ่าน EmailJS
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -78,6 +80,13 @@ function Contact() {
         },
         EMAILJS_PUBLIC_KEY
       );
+
+      // บันทึกข้อมูลลง backend
+      try {
+        await contactAPI.send(formData);
+      } catch (apiErr) {
+        console.warn("Backend save failed:", apiErr.message);
+      }
 
       setFormData({ name: "", email: "", message: "" });
       showAlert({

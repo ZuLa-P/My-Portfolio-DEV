@@ -1,45 +1,53 @@
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
 import ParticleBackground from "../components/ParticleBackground";
+import Loading from "../components/Loading";
+import { projectsAPI } from "../services/api";
 
-const projectsData = [
-  {
-    id: 0,
-    tech: ["React", "Tailwind CSS"],
-    github: "https://github.com/ZuLa-P/My-Portfolio-DEV",
-    demo: "https://phanuphong.vercel.app/",
-    gallery: [
-      { image: "/pic/portfoilo.PNG", captionKey: "projects.detail.0.captions.0" },
-      
-    ],
-  },
-  {
-    id: 1,
-    tech: ["React", "Tailwind CSS", "Express"],
-    github: "https://github.com/ZuLa-P/YoutubeDowload",
-    demo: "",
-    gallery: [
-      { image: "/pic/youtube.PNG", captionKey: "projects.detail.1.captions.0" },
-    ],
-  },
-  {
-    id: 2,
-    tech: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Docker"],
-    github: "",
-    demo: "",
-    gallery: [
-      { image: "/pic/sms2pro.PNG", captionKey: "projects.detail.2.captions.0" },
-    ],
-  },
-];
+// Pick localized string from { en, th } object or return plain string
+const getLang = (field, lang) => {
+  if (field && typeof field === "object") return field[lang] ?? field.en ?? "";
+  return field ?? "";
+};
 
 function ProjectDetail() {
   const { id } = useParams();
   const { isDark } = useTheme();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.slice(0, 2) ?? "en";
 
-  const project = projectsData[Number(id)];
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  console.log(project);
+  useEffect(() => {
+    projectsAPI
+      .getAll()
+      .then((data) => {
+        const list = Array.isArray(data) ? data : data?.data ?? data?.projects ?? [];
+        const found = list[Number(id)] ?? null;
+        setProject(found);
+      })
+      .catch((err) => {
+        console.warn("Failed to fetch project:", err.message);
+        setProject(null);
+      })
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) {
+    return (
+      <section
+        className={`min-h-screen transition-colors ${
+          isDark ? "bg-black" : "bg-gray-50"
+        }`}
+      >
+        <Loading />
+      </section>
+    );
+  }
 
   if (!project) {
     return (
@@ -61,8 +69,7 @@ function ProjectDetail() {
     );
   }
 
-  const title = t(`projects.items.${id}.title`);
-  const description = t(`projects.items.${id}.description`);
+  const gallery = project.image_detail ?? [];
 
   return (
     <section
@@ -72,7 +79,6 @@ function ProjectDetail() {
     >
       <ParticleBackground isDark={isDark} />
       <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Back Button */}
         <Link
           to="/projects"
           className={`inline-flex items-center gap-2 mb-8 text-sm transition ${
@@ -104,14 +110,14 @@ function ProjectDetail() {
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
-            {title}
+            {getLang(project.headers, lang)}
           </h1>
           <p
             className={`text-lg mb-6 ${
               isDark ? "text-gray-400" : "text-gray-500"
             }`}
           >
-            {description}
+            {getLang(project.caption, lang)}
           </p>
 
           {/* Tech Stack */}
@@ -182,10 +188,24 @@ function ProjectDetail() {
             )}
           </div>
         </div>
-
+       <div className="grid grid-cols-1 gap-8 mb-8 ">
+            <div
+              className={`rounded-xl overflow-hidden border transition-all ${
+                isDark
+                  ? "bg-gray-800/50 border-gray-700"
+                  : "bg-white border-gray-200"
+              }`}
+            >
+              <img
+                src={project.image}
+                alt={project.description || `${project.title} screenshot`}
+                className="w-full h-auto object-cover"
+              />
+              </div>
+        </div>
         {/* Gallery */}
         <div className="grid grid-cols-1 gap-8">
-          {project.gallery.map((item, index) => (
+          {gallery.map((item, index) => (
             <div
               key={index}
               className={`rounded-xl overflow-hidden border transition-all ${
@@ -195,19 +215,21 @@ function ProjectDetail() {
               }`}
             >
               <img
-                src={item.image}
-                alt={`${title} screenshot ${index + 1}`}
+                src={item.image_url}
+                alt={item.description }
                 className="w-full h-auto object-cover"
               />
-              <div className="p-5">
-                <p
-                  className={`text-sm leading-relaxed ${
-                    isDark ? "text-gray-300" : "text-gray-600"
-                  }`}
-                >
-                  {t(item.captionKey)}
-                </p>
-              </div>
+              {item.description && (
+                <div className="p-5 flex items-center justify-center">
+                  <p
+                    className={`text-xl leading-relaxed ${
+                      isDark ? "text-gray-300" : "text-gray-600"
+                    }`}
+                  >
+                    {getLang(item.description, lang)}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>
